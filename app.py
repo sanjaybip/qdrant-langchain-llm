@@ -18,10 +18,10 @@ client = qdrant_client.QdrantClient(
 # create a new collection
 vectors_config=qdrant_client.http.models.VectorParams(size=1536, distance=qdrant_client.http.models.Distance.COSINE)
 
-# client.create_collection(
-#     collection_name=os.getenv("QDRANT_COLLECTION_NAME"),
-#     vectors_config=vectors_config
-# )
+client.create_collection(
+    collection_name=os.getenv("QDRANT_COLLECTION_NAME"),
+    vectors_config=vectors_config
+)
 
 # create vectore store
 embeddings = OpenAIEmbeddings(
